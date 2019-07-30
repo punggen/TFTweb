@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Sublime project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<title>{{ account }}: 新增貼文</title>
+<meta name="keywords" content="one-two-福利">
+<meta name="description" content="one two 福利">    
+<script>
+ 
+</script>
+<body>
+<style>
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 3em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.sidebar {
+    height: 100%; 
+    width: 20%;
+    top: 0; /* Stay at the top */
+    left: 0;
+    position: fixed; 
+    text-align: center;
+    padding: 2rem 1rem;
+    color: rgba(255,255,255,.5);
+    background-color: #202020;
+    padding-top: 20px;
+}
+.sidebar-sticky {
+    position: absolute;
+    right: 7rem;
+    bottom: 10rem;
+    left: 1rem;
+
+}
+.sidebar-sticky a{
+    color: #d0d0d0;
+    text-decoration: none;
+    font-size: 17px;
+    text-align:left;
+}
+@media (min-width: 48em)
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
+    text-align: left;
+}
+@media (min-width: 48em)
+.sidebar-sticky {
+    position: absolute;
+    right: 1rem;
+    bottom: 20rem;
+    left: 1rem;
+
+}
+
+.container {
+    width: 70%;
+    max-width: 50rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.main {
+  margin-left: 30%; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}   #more {display: none;}
+.sidebar-nav {
+    margin-bottom: 1rem;
+}
+.sidebar-nav-item {
+    display: block;
+    line-height: 0.5;
+}
+
+a{
+    text-decoration: none;
+}
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  text-decoration: underline;
+}
+.sidebar-nav-item.active {
+  font-weight: bold;
+}
+.sidebar-about p{
+    font-size: 15px;
+}
+.sidebar-about a{
+    font-size: 27px;
+}
+
+.footer 	{ text-align:center; }
+.footer a  { color:#53B2C8; }
+
+/* form starting stylings ------------------------------- */
+.group   { 
+  position:relative; 
+  margin-top:45px; 
+}
+
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+  margin-top: 3rem;
+}
+
+</style>
+</head>
+<div class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+            <h1><a href="/">全聯福利中心</a></h1>
+                     <p>垃圾靠賽遊戲組合紀錄系統，厄薩斯剁剁剁剁剁剁</p>    
+        </div>
+        <div class="sidebar-nav">
+            {% if mode == 0 %}
+            <a class="sidebar-nav-item " href="/register" >註冊</a><br>
+            <a class="sidebar-nav-item " href="/login">登入</a><br>
+            {% endif %}
+            {% if mode == 1 %}
+            <a class="sidebar-nav-item " href="/addpost">新增貼文</a><br>
+            <a class="sidebar-nav-item "href="/personal">個人資料</a><br>
+            <a class="sidebar-nav-item "  href="/logout">登出</a><br>
+            <a>Hi : {{ account }}</a><br>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<div class="main">
+  
+  <form>
+    
+    <div class="group">      
+      <input type="text" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Title</label>
+    </div>
+      
+    <div class="col-75" >      
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px " cols="45"	></textarea>
+      
+    </div>
+    
+  </form>
+      
+  
+</div>
+
+</body>
