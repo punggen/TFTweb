@@ -1,0 +1,183 @@
+<!--shop/templates/home.html--> 
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Sublime project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<title>福利熊熊福利</title>
+<meta name="keywords" content="one-two-福利">
+<meta name="description" content="one two 福利">    
+<script>
+    function ReadMore() {
+     var dots = document.getElementById("dots");
+     var moreText = document.getElementById("more");
+     var btnText = document.getElementById("textbtn");
+
+     if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "< Read more >"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "< Read less >"; 
+        moreText.style.display = "inline";
+      }
+    }
+
+</script>
+<body>
+<style>
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 3em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.sidebar {
+    height: 100%; 
+    width: 20%;
+    top: 0; /* Stay at the top */
+    left: 0;
+    position: fixed; 
+    text-align: center;
+    padding: 2rem 1rem;
+    color: rgba(255,255,255,.5);
+    background-color: #202020;
+    padding-top: 20px;
+}
+.sidebar-sticky {
+    position: absolute;
+    right: 7rem;
+    bottom: 10rem;
+    left: 1rem;
+
+}
+.sidebar-sticky a{
+    color: #d0d0d0;
+    text-decoration: none;
+    font-size: 17px;
+    text-align:left;
+}
+@media (min-width: 48em)
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
+    text-align: left;
+}
+@media (min-width: 48em)
+.sidebar-sticky {
+    position: absolute;
+    right: 1rem;
+    bottom: 20rem;
+    left: 1rem;
+
+}
+
+.container {
+    width: 70%;
+    max-width: 50rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.main {
+  margin-left: 30%; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}   #more {display: none;}
+.sidebar-nav {
+    margin-bottom: 1rem;
+}
+.sidebar-nav-item {
+    display: block;
+    line-height: 0.5;
+}
+
+a{
+    text-decoration: none;
+}
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  text-decoration: underline;
+}
+.sidebar-nav-item.active {
+  font-weight: bold;
+}
+.sidebar-about p{
+    font-size: 15px;
+}
+.sidebar-about a{
+    font-size: 27px;
+}
+
+</style>
+</head>
+
+<div class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+            <h1><a href="/">全聯福利中心</a></h1>
+            <p>垃圾靠賽遊戲組合紀錄系統，厄薩斯剁剁剁剁剁剁</p>    
+        </div>
+        <div class="sidebar-nav">
+            {% if mode == 0 %}
+            <a class="sidebar-nav-item " href="/register" >註冊</a><br>
+            <a class="sidebar-nav-item " href="/login">登入</a><br>
+            {% endif %}
+            {% if mode == 1 %}
+            <a class="sidebar-nav-item " href="/addpost">新增貼文</a><br>
+            <a class="sidebar-nav-item "href="/personal">個人資料</a><br>
+            <a class="sidebar-nav-item "  href="/logout">登出</a><br>
+            <a>Hi : {{ account }}</a><br>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <h1>全聯福利</h1>
+    {% for post in post_list %}
+   
+    <u1>
+        <font size = "6">
+        <a href="post/{{ post.id }}"  style="color:black;" id="title">{{post.post_title}}<br>
+        </font>
+            <a><span id="dots">{{post.post_less}}......</span></a>
+            <a><span id="more">{{ post.post_content }}</span></a>
+            <a href="javascript: return false;" onclick="ReadMore()" id="textbtn">< Read more ></a>
+        <div>
+            {% if post.post_photo %}
+            <img src= "{{  post.post_photo.url }}" height="150"  alt="範例圖片"/>
+            {% endif %}
+        </a> 
+        <p></p>
+        </div>
+        
+    </u1>
+    {% endfor %}
+</div>    
+    <HR size="10"> 
+
+</body>

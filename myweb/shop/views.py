@@ -29,7 +29,7 @@ def home(request):
         post.post_less = post.post_content[0:30]
        # less.append(post.post_content[0:30])
       #  print(post.post_less) 
-    return render(request,'home.html',{'product_list':product_list, 'mode':mode, 'account': request.user.username, 'post_list':post_list})
+    return render(request,'index.html',{'product_list':product_list, 'mode':mode, 'account': request.user.username, 'post_list':post_list})
 
 def register(request):
 	if request.method=='POST':
